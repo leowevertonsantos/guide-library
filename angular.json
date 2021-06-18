@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "guideinv-commons": {
+      "projectType": "library",
+      "root": "projects/guideinv-commons",
+      "sourceRoot": "projects/guideinv-commons/src",
+      "prefix": "g-commons",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/guideinv-commons/ng-package.json",
+            "tsConfig": "."
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/guideinv-commons/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/guideinv-commons/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/guideinv-commons/src/test.ts",
+            "tsConfig": "projects/guideinv-commons/tsconfig.spec.json",
+            "karmaConfig": "projects/guideinv-commons/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "guideinv-commons"
 }
